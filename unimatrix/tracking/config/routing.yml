@@ -1,0 +1,3 @@
+unimatrix_tracking_controller:
+  path: /track
+  defaults: { _controller: unimatrix.tracking.controller:handle }

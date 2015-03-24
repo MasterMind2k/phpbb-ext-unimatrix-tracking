@@ -1,0 +1,24 @@
+{
+  "name": "unimatrix/tracking",
+  "type": "phpbb-extension",
+  "description": "External website visitor tracking extension for phpBB 3.1",
+  "homepage": "https://github.com/MasterMind2k/phpbb-ext-unimatrix-tracking",
+  "version": "0.1.0",
+  "time": "2014-03-24",
+  "license": "GPL-2.0",
+  "authors": [{
+    "name": "Gregor Kališnik",
+    "email": "gregor@unimatrix.si",
+    "homepage": "https://github.com/MasterMind2k/",
+    "role": "Lead Developer"
+  }],
+  "require": {
+    "php": ">=5.3.3"
+  },
+  "extra": {
+    "display-name": "Visitor tracking on external website",
+    "soft-require": {
+      "phpbb/phpbb": ">=3.1.0-RC2,<3.2.*@dev"
+    }
+  }
+}

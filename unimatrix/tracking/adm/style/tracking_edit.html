@@ -1,0 +1,32 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+
+<form method="post" action="{U_ACTION}">
+  <fieldset>
+    <legend>{L_SETTINGS}</legend>
+    <dl>
+      <dt><label for="subsite_text">{L_SUBSITE_TEXT}</label></dt>
+      <dd><input type="text" value="{SUBSITE_TEXT}" id="subsite_text" name="subsite_text" /></dd>
+    </dl>
+
+    <dl>
+      <dt><label for="subsite_path">{L_SUBSITE_PATH}</label></dt>
+      <dd><input type="text" value="{SUBSITE_PATH}" id="subsite_path" name="subsite_path" /></dd>
+    </dl>
+
+    <dl>
+      <dt><label for="subsite_show">{L_SUBSITE_SHOW}</label></dt>
+      <dd><input type="checkbox"<!-- IF SUBSITE_SHOW --> checked="checked"<!-- ENDIF --> id="subsite_show" name="subsite_show" /></dd>
+    </dl>
+
+    <p class="quick">
+      <input class="button2" name="submit" type="submit" value="{L_SUBMIT}" />
+    </p>
+
+  </fieldset>
+
+  {S_FORM_TOKEN}
+</form>
+
+<!-- INCLUDE overall_footer.html -->

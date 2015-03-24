@@ -1,0 +1,43 @@
+<!-- INCLUDE overall_header.html -->
+
+<h1>{L_SETTINGS}</h1>
+
+<table class="table1">
+  <thead>
+    <tr>
+      <th></th>
+      <th>{L_SUBSITE_TEXT}</th>
+      <th>{L_SUBSITE_PATH}</th>
+      <th>{L_SUBSITE_SHOW}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- BEGIN subsite -->
+    <tr>
+      <td class="row1">
+        <a href="{U_EDIT_SUBSITE}{subsite.ID}">{ICON_EDIT}</a>
+        <a href="{U_DELETE_SUBSITE}{subsite.ID}">{ICON_DELETE}</a>
+      </td>
+      <td class="row2">{subsite.TEXT}</td>
+      <td class="row2">{subsite.PATH}</td>
+      <td class="row2">
+        <!-- IF subsite.SHOW -->
+        {L_YES}
+        <!-- ELSE -->
+        {L_NO}
+        <!-- ENDIF -->
+      </td>
+    </tr>
+    <!-- BEGINELSE -->
+    <tr>
+      <td class="row2" colspan="4">{L_NO_SUBSITES}</td>
+    </tr>
+    <!-- END subsite -->
+  </tbody>
+</table>
+
+<p class="quick">
+  <a href="{U_ADD_SUBSITE}" class="button2">{L_ADD_SUBSITE}</a>
+</p>
+
+<!-- INCLUDE overall_footer.html -->

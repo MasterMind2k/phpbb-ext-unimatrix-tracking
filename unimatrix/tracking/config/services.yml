@@ -1,0 +1,16 @@
+services:
+  unimatrix.tracking.controller:
+    class: unimatrix\tracking\controller\main
+    arguments:
+      - @config
+      - @controller.helper
+      - @template
+      - @user
+  unimatrix.tracking.listener:
+    class: unimatrix\tracking\event\main_listener
+    arguments:
+      - @user
+      - @dbal.conn
+      - %core.table_prefix%
+    tags:
+      - { name: event.listener }
