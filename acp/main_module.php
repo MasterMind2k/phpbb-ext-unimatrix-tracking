@@ -23,6 +23,15 @@ class main_module
 
     $action = request_var('action', '');
 
+    // Get subsite id
+    if (in_array($action, array('edit', 'delete'))) {
+      $subsite_id = (int) request_var('id', 0);
+      if (!$subsite_id)
+        trigger_error($user->lang('ACP_TRACKING_NEED_ID') . adm_back_link($this->u_action), E_USER_ERROR);
+    } else {
+      $subsite_id = false;
+    }
+
     switch ($action) {
       case 'edit':
       case 'add':
@@ -30,16 +39,9 @@ class main_module
         $this->tpl_name = 'tracking_edit';
         $this->page_title = $user->lang('ACP_TRACKING_TITLE');
 
-        if ($action == 'edit') {
-          $subsite_id = request_var('id', 0);
-          if (!$subsite_id)
-            trigger_error($user->lang('ACP_TRACKING_NEED_ID') . adm_back_link($this->u_action), E_USER_ERROR);
-        } else {
-          $subsite_id = 0;
-        }
-
         add_form_key('unimatrix/tracking');
         if ($request->is_set_post('submit')) {
+          // Submit changes
           if (!check_form_key('unimatrix/tracking'))
             trigger_error('FORM_INVALID', E_USER_ERROR);
 
@@ -49,7 +51,7 @@ class main_module
             'subsite_show' => (bool) $request->variable('subsite_show', '')
           );
 
-          if ($subsite_id) {
+          if ($subsite_id !== false) {
             // Edit
             $sql = 'UPDATE ' . $table_prefix . 'unimatrix_tracking_subsites SET ' . $db->sql_build_array('UPDATE', $subsite) . ' WHERE subsite_id = ' . (int) $subsite_id;
           } else {
@@ -58,10 +60,11 @@ class main_module
           }
           $db->sql_query($sql);
           trigger_error($user->lang('ACP_TRACKING_SUBSITE_SAVED') . adm_back_link($this->u_action));
-        } else if ($subsite_id) {
+        } else if ($subsite_id !== false) {
+          // Get data for edit form
           $sql = 'SELECT *
                   FROM ' . $table_prefix . 'unimatrix_tracking_subsites
-                  WHERE subsite_id = ' . (int) $subsite_id;
+                  WHERE subsite_id = ' . $subsite_id;
           $result = $db->sql_query($sql);
 
           $subsite = $db->sql_fetchrow($result);
