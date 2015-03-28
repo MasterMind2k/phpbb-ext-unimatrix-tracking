@@ -74,8 +74,12 @@ class main_module
           ));
         }
 
+        $edit_id = '';
+        if ($action == 'edit')
+          $edit_id = "&amp;id=$subsite_id";
+
         $template->assign_vars(array(
-          'U_ACTION'        => $this->u_action . '&amp;action=' . $action,
+          'U_ACTION'        => $this->u_action . "&amp;action={$action}{$edit_id}",
           'U_BACK'          => $this->u_action,
           'EDIT'            => $action == 'edit',
         ));
