@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * @package phpBB Extension - Acme Demo
+ * @package phpBB Extension - Unimatrix Tracking
  * @copyright (c) 2015 Gregor Kališnik
  * @copyright (c) 2015 Unimatrix
  * @license http://opensource.org/licenses/gpl-2.0.php GNU General Public License v2
