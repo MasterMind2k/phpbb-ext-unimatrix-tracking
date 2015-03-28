@@ -29,7 +29,7 @@
 
 <h2>{L_SUBSITES}</h2>
 
-<table class="table1">
+<table class="table1 zebra-table">
   <thead>
     <tr>
       <th></th>
@@ -41,13 +41,13 @@
   <tbody>
     <!-- BEGIN subsite -->
     <tr>
-      <td class="row1">
+      <td>
         <a href="{U_EDIT_SUBSITE}{subsite.ID}">{ICON_EDIT}</a>
         <a href="{U_DELETE_SUBSITE}{subsite.ID}">{ICON_DELETE}</a>
       </td>
-      <td class="row2">{subsite.TEXT}</td>
-      <td class="row2">{subsite.PATH}</td>
-      <td class="row2">
+      <td>{subsite.TEXT}</td>
+      <td>{subsite.PATH}</td>
+      <td>
         <!-- IF subsite.SHOW -->
         {L_YES}
         <!-- ELSE -->
@@ -57,7 +57,7 @@
     </tr>
     <!-- BEGINELSE -->
     <tr>
-      <td class="row2" colspan="4">{L_NO_SUBSITES}</td>
+      <td colspan="4">{L_NO_SUBSITES}</td>
     </tr>
     <!-- END subsite -->
   </tbody>
