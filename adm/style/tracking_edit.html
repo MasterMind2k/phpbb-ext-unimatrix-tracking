@@ -17,13 +17,13 @@
 
     <dl>
       <dt><label for="subsite_show">{L_SUBSITE_SHOW}</label></dt>
-      <dd><input type="checkbox"<!-- IF SUBSITE_SHOW --> checked="checked"<!-- ENDIF --> id="subsite_show" name="subsite_show" /></dd>
+      <dd><input type="checkbox"<!-- IF SUBSITE_SHOW or SUBSITE_SHOW === null --> checked="checked"<!-- ENDIF --> value="1" id="subsite_show" name="subsite_show" /></dd>
     </dl>
 
-    <p class="quick">
-      <input class="button2" name="submit" type="submit" value="{L_SUBMIT}" />
-    </p>
+  </fieldset>
 
+  <fieldset class="submit-buttons">
+    <input class="button1" name="submit" type="submit" value="{L_SUBMIT}" />
   </fieldset>
 
   {S_FORM_TOKEN}

@@ -9,6 +9,7 @@ services:
   unimatrix.tracking.listener:
     class: unimatrix\tracking\event\main_listener
     arguments:
+      - @config
       - @user
       - @dbal.conn
       - %core.table_prefix%

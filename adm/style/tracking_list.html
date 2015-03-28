@@ -2,6 +2,33 @@
 
 <h1>{L_SETTINGS}</h1>
 
+<form action="{U_ACTION}" method="post">
+  <fieldset>
+    <legend>{L_GENERAL_SETTINGS}</legend>
+
+    <dl>
+      <dt>
+        <label for="enable_translations">{L_ENABLE_TRANSLATIONS}</label>
+        <br/>
+        <span>{L_ENABLE_TRANSLATIONS_DESCRIPTION}</span>
+      </dt>
+      <dd>
+        <input type="checkbox" name="enable_translations" id="enable_translations" value="1" <!-- IF TRANSLATIONS_ENABLED -->checked="checked"<!-- ENDIF --> />
+      </dd>
+    </dl>
+  </fieldset>
+
+  <fieldset class="submit-buttons">
+    <legend>{L_SUBMIT}</legend>
+    <input type="submit" class="button1" id="submit" name="submit" value="{L_SUBMIT}" />
+    <input type="reset" class="button2" id="reset" name="reset" value="{L_RESET}" />
+  </fieldset>
+
+  {S_FORM_TOKEN}
+</form>
+
+<h2>{L_SUBSITES}</h2>
+
 <table class="table1">
   <thead>
     <tr>

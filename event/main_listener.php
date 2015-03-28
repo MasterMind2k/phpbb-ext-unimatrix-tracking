@@ -29,6 +29,9 @@ class main_listener implements EventSubscriberInterface
     );
   }
 
+  /* @var \phpbb\config\config */
+  protected $config;
+
   /* @var \phpbb\user */
   protected $user;
 
@@ -46,8 +49,9 @@ class main_listener implements EventSubscriberInterface
    *
    * @param \phpbb\user $user User object
    */
-  public function __construct(\phpbb\user $user, \phpbb\db\driver\factory $db, $table_prefix)
+  public function __construct(\phpbb\config\config $config, \phpbb\user $user, \phpbb\db\driver\factory $db, $table_prefix)
   {
+    $this->config = $config;
     $this->user = $user;
     $this->db = $db;
     $this->table_prefix = $table_prefix;
@@ -66,7 +70,8 @@ class main_listener implements EventSubscriberInterface
 
   public function set_external_location($event)
   {
-    global $table_prefix;
+    if ($this->config['unimatrix_tracking_translations'])
+      $this->user->add_lang('subsites');
 
     // We have multiple options to track
     $js_include = false;

@@ -18,14 +18,19 @@ $lang = array_merge($lang, array(
   'TRACKING_VIEWING' => 'Viewing website',
 
   'NO_SUBSITES'  => 'There are no subsites, add one.',
-  'SUBSITE_TEXT' => "Subsite's text",
-  'SUBSITE_PATH' => "Subsite's path prefix",
-  'SUBSITE_SHOW' => "Show subsite's URL",
+  'SUBSITE_TEXT' => "Text",
+  'SUBSITE_PATH' => "Path prefix",
+  'SUBSITE_SHOW' => "Show URL",
   'ADD_SUBSITE'  => "Add new subsite",
+  'SUBSITES'     => "Subsites",
+
+  'ENABLE_TRANSLATIONS'             => "Enable subsite translations",
+  'ENABLE_TRANSLATIONS_DESCRIPTION' => "You need to ensure you have subsites.php translation file in your translations, otherwise view online page won't work.",
 
   'ACP_TRACKING'                 => 'Settings',
   'ACP_TRACKING_TITLE'           => 'External website tracker',
   'ACP_TRACKING_SUBSITE_DELETED' => 'Subsite successfully removed.',
   'ACP_TRACKING_NEED_ID'         => "No subsite was specified.",
   'ACP_TRACKING_SUBSITE_SAVED'   => "Subsite was successfully saved.",
+  'ACP_TRACKING_SAVED'           => "General external tracker settings saved.",
 ));

@@ -38,16 +38,16 @@ class main_module
         $this->tpl_name = 'tracking_edit';
         $this->page_title = $user->lang('ACP_TRACKING_TITLE');
 
-        add_form_key('unimatrix/tracking');
+        add_form_key('unimatrix/tracking/subsite');
         if ($request->is_set_post('submit')) {
           // Submit changes
-          if (!check_form_key('unimatrix/tracking'))
+          if (!check_form_key('unimatrix/tracking/subsite'))
             trigger_error('FORM_INVALID', E_USER_ERROR);
 
           $subsite = array(
             'subsite_text' => $request->variable('subsite_text', ''),
             'subsite_path' => $request->variable('subsite_path', ''),
-            'subsite_show' => (bool) $request->variable('subsite_show', '')
+            'subsite_show' => $request->variable('subsite_show', 1)
           );
 
           if ($subsite_id !== false) {
@@ -109,6 +109,16 @@ class main_module
         $this->tpl_name = 'tracking_list';
         $this->page_title = $user->lang('ACP_TRACKING_TITLE');
 
+        add_form_key('unimatrix/tracking');
+        if ($request->is_set_post('submit')) {
+          if (!check_form_key('unimatrix/tracking'))
+            trigger_error('FORM_INVALID', E_USER_ERROR);
+
+          $config->set('unimatrix_tracking_translations', $request->variable('enable_translations', 0));
+
+          trigger_error($user->lang('ACP_TRACKING_SAVED') . adm_back_link($this->u_action));
+        }
+
         // TODO Add pagination, probably needed?
         $sql = 'SELECT *
                 FROM ' . $table_prefix . 'unimatrix_tracking_subsites';
@@ -126,9 +136,10 @@ class main_module
         $db->sql_freeresult($result);
 
         $template->assign_vars(array(
-          'U_ADD_SUBSITE'    => $this->u_action . '&amp;action=add',
-          'U_EDIT_SUBSITE'   => $this->u_action . '&amp;action=edit&amp;id=',
-          'U_DELETE_SUBSITE' => $this->u_action . '&amp;action=delete&amp;id=' . $subsite_id,
+          'U_ADD_SUBSITE'        => $this->u_action . '&amp;action=add',
+          'U_EDIT_SUBSITE'       => $this->u_action . '&amp;action=edit&amp;id=',
+          'U_DELETE_SUBSITE'     => $this->u_action . '&amp;action=delete&amp;id=' . $subsite_id,
+          'TRANSLATIONS_ENABLED' => $config['unimatrix_tracking_translations'],
         ));
       break;
     }
