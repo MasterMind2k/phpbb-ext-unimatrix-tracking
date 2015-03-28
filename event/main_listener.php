@@ -24,6 +24,7 @@ class main_listener implements EventSubscriberInterface
   static public function getSubscribedEvents()
   {
     return array(
+      'core.user_setup'                    => 'load_language_on_setup',
       'core.viewonline_overwrite_location' => 'set_external_location'
     );
   }
@@ -50,12 +51,17 @@ class main_listener implements EventSubscriberInterface
     $this->user = $user;
     $this->db = $db;
     $this->table_prefix = $table_prefix;
+  }
 
-    // Add language file common.php
-    $this->user->add_lang_ext('unimatrix/tracking', 'common');
-    // Load user defined strings TODO Enable from ACP
-    if (false)
-      $this->user->add_lang_ext('unimatrix/tracking', 'additional');
+  public function load_language_on_setup($event)
+  {
+    $lang_set_ext = $event['lang_set_ext'];
+    $lang_set_ext[] = array(
+      'ext_name' => 'unimatrix/tracking',
+      'lang_set' => 'common',
+    );
+
+    $event['lang_set_ext'] = $lang_set_ext;
   }
 
   public function set_external_location($event)
