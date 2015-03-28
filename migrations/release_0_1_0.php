@@ -48,7 +48,7 @@ class release_0_1_0 extends \phpbb\db\migration\migration
           'ACP_TRACKING_TITLE',
         array(
           'module_basename' => '\unimatrix\tracking\acp\main_module',
-          'modes'           => array('settings', 'add', 'edit'),
+          'modes'           => array('settings'),
         ),
       )),
     );
