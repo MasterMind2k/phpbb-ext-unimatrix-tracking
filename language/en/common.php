@@ -23,8 +23,8 @@ $lang = array_merge($lang, array(
   'SUBSITE_SHOW' => "Show subsite's URL",
   'ADD_SUBSITE'  => "Add new subsite",
 
-  'ACP_TRACKING'                 => 'External website tracker',
-  'ACP_TRACKING_TITLE'           => 'External website tracker settings',
+  'ACP_TRACKING'                 => 'Settings',
+  'ACP_TRACKING_TITLE'           => 'External website tracker',
   'ACP_TRACKING_SUBSITE_DELETED' => 'Subsite successfully removed.',
   'ACP_TRACKING_NEED_ID'         => "No subsite was specified.",
   'ACP_TRACKING_SUBSITE_SAVED'   => "Subsite was successfully saved.",
