@@ -89,6 +89,10 @@ class main_module
         break;
       case 'delete':
         if (confirm_box(true)) {
+          // Delete
+          $sql = "DELETE FROM {$table_prefix}unimatrix_tracking_subsites WHERE subsite_id = $subsite_id";
+          $db->sql_query($sql);
+
           trigger_error($user->lang('ACP_TRACKING_SUBSITE_DELETED') . adm_back_link($this->u_action));
         } else {
           $s_hidden_fields = build_hidden_fields(array(
