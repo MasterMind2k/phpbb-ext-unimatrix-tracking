@@ -102,7 +102,7 @@ class main_listener implements EventSubscriberInterface
 
           if (!$subsite['subsite_show'])
             $path = '/';
-          $name = $subsite['subsite_text'];
+          $name = $this->user->lang($subsite['subsite_text']);
           // Done
           break;
         }
