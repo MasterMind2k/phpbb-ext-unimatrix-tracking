@@ -47,7 +47,7 @@ class main_module
           $subsite = array(
             'subsite_text' => $request->variable('subsite_text', ''),
             'subsite_path' => $request->variable('subsite_path', ''),
-            'subsite_show' => $request->variable('subsite_show', 1)
+            'subsite_show' => $request->variable('subsite_show', 0),
           );
 
           if ($subsite_id !== false) {
