@@ -3,7 +3,7 @@
   "type": "phpbb-extension",
   "description": "External website visitor tracking extension for phpBB 3.1",
   "homepage": "https://github.com/MasterMind2k/phpbb-ext-unimatrix-tracking",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "time": "2014-03-24",
   "license": "GPL-2.0",
   "authors": [{

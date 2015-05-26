@@ -46,6 +46,14 @@ class main {
   */
   public function handle()
   {
-    return new \Symfony\Component\HttpFoundation\Response();
+    $text = '';
+    if ($this->config['unimatrix_tracking_session_sync']) {
+      $sid = $this->user->session_id;
+      $text = "(function() {var my_session = '$sid';";
+      $text .= "if (phpbb3_session != my_session) {window.location.reload();};";
+      $text .= "})();";
+    }
+
+    return new \Symfony\Component\HttpFoundation\Response($text);
   }
 }

@@ -115,6 +115,7 @@ class main_module
             trigger_error('FORM_INVALID', E_USER_ERROR);
 
           $config->set('unimatrix_tracking_translations', $request->variable('enable_translations', 0));
+          $config->set('unimatrix_tracking_session_sync', $request->variable('enable_session_sync', 0));
 
           trigger_error($user->lang('ACP_TRACKING_SAVED') . adm_back_link($this->u_action));
         }
@@ -140,6 +141,7 @@ class main_module
           'U_EDIT_SUBSITE'       => $this->u_action . '&amp;action=edit&amp;id=',
           'U_DELETE_SUBSITE'     => $this->u_action . '&amp;action=delete&amp;id=' . $subsite_id,
           'TRANSLATIONS_ENABLED' => $config['unimatrix_tracking_translations'],
+          'SESSION_SYNC_ENABLED' => $config['unimatrix_tracking_session_sync'],
         ));
       break;
     }

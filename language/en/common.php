@@ -26,6 +26,8 @@ $lang = array_merge($lang, array(
 
   'ENABLE_TRANSLATIONS'             => "Enable subsite translations",
   'ENABLE_TRANSLATIONS_DESCRIPTION' => "You need to ensure you have subsites.php translation file in your translations, otherwise view online page won't work.",
+  'ENABLE_SESSION_SYNC'             => "Enable session sync",
+  'ENABLE_SESSION_SYNC_DESCRIPTION' => "Included script will read external website's session id from variable <b>phpbb3_session</b>, and if it is a mismatch, it will issue a reload of the page.",
 
   'ACP_TRACKING'                 => 'Settings',
   'ACP_TRACKING_TITLE'           => 'External website tracker',
