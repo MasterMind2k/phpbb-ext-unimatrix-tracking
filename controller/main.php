@@ -47,7 +47,7 @@ class main {
   public function handle()
   {
     $text = '';
-    if ($this->config['unimatrix_tracking_session_sync']) {
+    if ($this->config['unimatrix_tracking_session_sync'] && !$this->user->data['is_bot']) {
       $sid = $this->user->session_id;
       $text = "(function() {var my_session = '$sid';";
       $text .= "if (phpbb3_session != my_session) {window.location.reload();};";
